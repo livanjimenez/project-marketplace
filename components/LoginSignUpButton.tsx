@@ -1,7 +1,17 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 export default function LoginSignUpButton() {
+  const router = useRouter();
+
+  function handleLogin() {
+    router.push('/login');
+  }
+
   return (
     <>
-      <button>Login/Sign Up</button>
+      <button onClick={handleLogin}>Login</button>
     </>
   );
 }

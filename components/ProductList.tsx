@@ -42,7 +42,7 @@ export default function ProductList() {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-4">
       {products.map((product) => (
-        <div key={product.id} className="bg-slate-100 p-4 rounded-lg shadow-md">
+        <div key={product.id} className="p-4">
           <img
             src={product.image}
             alt={product.name}

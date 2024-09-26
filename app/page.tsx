@@ -5,12 +5,15 @@ import PostButton from '@/components/PostButton';
 import SearchBar from '@/components/SearchBar';
 import CategoryList from '@/components/CategoryList';
 import ProductList from '@/components/ProductList';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
     <>
-      <header className="flex flex-row gap-8">
-        <h1>Title</h1>
+      <header className="flex flex-row justify-between gap-8 p-8">
+        <Link href="/">
+          <h1>Title</h1>
+        </Link>
         <SearchBar />
         <LocationButton />
         <DropdownButton />
