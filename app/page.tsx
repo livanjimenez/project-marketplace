@@ -16,7 +16,10 @@ export default function HomePage() {
         </Link>
         <SearchBar />
         <LocationButton />
-        <DropdownButton />
+        <DropdownButton
+          name="About"
+          categories={['About', 'Terms of Service', 'Privacy']}
+        />
         <PostButton />
         <LoginSignUpButton />
       </header>

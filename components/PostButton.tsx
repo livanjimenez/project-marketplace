@@ -1,9 +1,11 @@
-// TODO: routes to /posts page when clicked
+import Link from 'next/link';
 
 export default function PostButton() {
   return (
     <>
-      <button>Make a Post</button>
+      <Link href="/post">
+        <button>Make a Post</button>
+      </Link>
     </>
   );
 }
