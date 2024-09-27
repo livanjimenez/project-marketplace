@@ -11,7 +11,12 @@ export default function LoginSignUpButton() {
 
   return (
     <>
-      <button onClick={handleLogin}>Login</button>
+      <button
+        className="bg-sky-500 px-4 my-4 rounded-lg text-white hover:text-black "
+        onClick={handleLogin}
+      >
+        Login
+      </button>
     </>
   );
 }

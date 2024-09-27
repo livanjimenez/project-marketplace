@@ -10,11 +10,13 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <>
-      <header className="flex flex-row justify-between gap-8 p-8">
-        <Link href="/">
-          <h1>Title</h1>
-        </Link>
-        <SearchBar />
+      <header className="flex">
+        <div className="flex">
+          <Link href="/">
+            <h1 className="text-3xl">MerchHub</h1>
+          </Link>
+          <SearchBar />
+        </div>
         <LocationButton />
         <DropdownButton
           name="About"
