@@ -30,7 +30,7 @@ const categories = [
 
 export default function CategoryList() {
   return (
-    <nav className="border-b-2 border-gray-500">
+    <nav>
       <ul className="flex flex-row justify-between mx-4">
         {categories.map((category) => (
           <li key={category.id}>
@@ -41,6 +41,7 @@ export default function CategoryList() {
           </li>
         ))}
       </ul>
+      <div className="mt-4 border-b border-gray-300"></div>
     </nav>
   );
 }

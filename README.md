@@ -1,3 +1,3 @@
-# CraigsList x OfferUp x eBay Clone
+# Frontend for Online Marketplace
 
 ## Built w/ ❤️
