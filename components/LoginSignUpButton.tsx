@@ -12,10 +12,10 @@ export default function LoginSignUpButton() {
   return (
     <>
       <button
-        className="bg-sky-500 px-4 my-4 rounded-lg text-white hover:text-black "
+        className="bg-blue-500 px-4 my-4 rounded-lg text-white hover:text-black "
         onClick={handleLogin}
       >
-        Login
+        Sign in
       </button>
     </>
   );

@@ -31,7 +31,7 @@ const categories = [
 export default function CategoryList() {
   return (
     <nav>
-      <ul className="flex flex-row justify-between mx-4">
+      <ul className="flex flex-row justify-center gap-4 mx-4">
         {categories.map((category) => (
           <li key={category.id}>
             <DropdownButton

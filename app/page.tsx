@@ -10,23 +10,33 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <>
-      <header className="flex">
-        <div className="flex">
+      <header className="flex items-center justify-center px-24 py-8 gap-8">
+        {/* Middle Section: Search bar and Location */}
+        <div className="flex items-center justify-center space-x-2">
           <Link href="/">
-            <h1 className="text-3xl">MerchHub</h1>
+            <h1 className="font-mono text-3xl font-semibold">Zeze</h1>
           </Link>
           <SearchBar />
         </div>
-        <LocationButton />
-        <DropdownButton
-          name="About"
-          categories={['About', 'Terms of Service', 'Privacy']}
-        />
-        <PostButton />
-        <LoginSignUpButton />
+
+        {/* Right Section: Dropdown, Post, Login/Signup */}
+        <div className="flex items-center space-x-6">
+          {/* <LocationButton /> */}
+          <DropdownButton
+            name="About"
+            categories={['About', 'Terms of Service', 'Privacy']}
+          />
+          <PostButton />
+          <LoginSignUpButton />
+        </div>
       </header>
+
+      {/* Category List */}
+
       <CategoryList />
-      <main>
+
+      {/* Main Content */}
+      <main className="py-8">
         <ProductList />
       </main>
     </>
