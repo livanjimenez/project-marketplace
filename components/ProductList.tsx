@@ -1,3 +1,5 @@
+'use client';
+
 const products = [
   {
     id: 1,
@@ -77,14 +79,19 @@ export default function ProductList() {
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-4">
       {products.map((product) => (
         <div key={product.id} className="p-4">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-auto rounded-t-lg mb-4"
-          />
-          <h2 className="text-lg font-bold">{product.name}</h2>
-          <p className="text-gray-600 font-semibold">${product.price}</p>
-          <p className="text-gray-600">{product.location}</p>
+          <button
+            className="w-full hover:shadow-md hover:rounded-lg text-left p-4 "
+            onClick={() => alert(`You clicked on ${product.name}`)}
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-auto rounded-t-lg mb-4"
+            />
+            <h2 className="text-lg font-bold">{product.name}</h2>
+            <p className="text-gray-600 font-semibold">${product.price}</p>
+            <p className="text-gray-600">{product.location}</p>
+          </button>
         </div>
       ))}
     </div>
