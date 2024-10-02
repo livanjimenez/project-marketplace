@@ -11,7 +11,6 @@ export default function HomePage() {
   return (
     <>
       <header className="flex items-center justify-center px-24 py-8 gap-8">
-        {/* Middle Section: Search bar and Location */}
         <div className="flex items-center justify-center space-x-2">
           <Link href="/">
             <h1 className="font-mono text-3xl font-semibold">Zeze</h1>
@@ -19,7 +18,6 @@ export default function HomePage() {
           <SearchBar />
         </div>
 
-        {/* Right Section: Dropdown, Post, Login/Signup */}
         <div className="flex items-center space-x-6">
           {/* <LocationButton /> */}
           <DropdownButton
@@ -31,11 +29,8 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Category List */}
-
       <CategoryList />
 
-      {/* Main Content */}
       <main className="py-8">
         <ProductList />
       </main>
