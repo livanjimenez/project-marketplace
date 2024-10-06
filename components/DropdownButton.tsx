@@ -3,6 +3,39 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+function dropDownMenu({
+  categories,
+  isOpen,
+  setIsOpen,
+}: {
+  categories: string[];
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+}) {
+  return (
+    <>
+      {isOpen && (
+        <ul className="absolute left-0 mt-2 w-48 flex flex-col bg-white shadow-lg z-10">
+          {categories.map((category) => (
+            <li key={category}>
+              <a href={`/category/${category}`} className="block px-4 py-2">
+                {category}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-50 z-0"
+        />
+      )}
+    </>
+  );
+}
+
 export default function DropdownButton({
   categories,
   name,
@@ -12,9 +45,9 @@ export default function DropdownButton({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => {
+  function handleClick() {
     setIsOpen(!isOpen);
-  };
+  }
 
   return (
     <>
@@ -24,17 +57,7 @@ export default function DropdownButton({
           <span className="ml-2">{name}</span>
         </button>
 
-        {isOpen && (
-          <ul className="absolute left-0 mt-2 w-48 flex flex-col bg-white shadow-lg z-10">
-            {categories.map((category) => (
-              <li key={category}>
-                <a href={`/category/${category}`} className="block px-4 py-2">
-                  {category}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
+        {dropDownMenu({ categories, isOpen, setIsOpen })}
       </div>
     </>
   );

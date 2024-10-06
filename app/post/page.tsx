@@ -33,6 +33,7 @@ export default function PostPage() {
         <div className="flex items-center space-x-6">
           {/* <LocationButton /> */}
           <DropdownButton
+            route="about"
             name="About"
             categories={['About', 'Terms of Service', 'Privacy']}
           />
