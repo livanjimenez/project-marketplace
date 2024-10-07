@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { MapPin } from 'lucide-react';
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
@@ -27,30 +28,31 @@ async function reverseGeocode(lat: string, long: string): Promise<string> {
   const response = await fetch(reverseGeocodeURL);
   const data = await response.json();
 
-  const postalCode = data.results[0]?.address_components.find(
-    (component: any) => component.types.includes('postal_code'),
+  const locality = data.results[0]?.address_components.find((component: any) =>
+    component.types.includes('locality'),
   )?.long_name;
 
-  return postalCode || 'No postal code found';
+  const adminArea = data.results[0]?.address_components.find((component: any) =>
+    component.types.includes('administrative_area_level_1'),
+  )?.short_name;
+
+  return `${locality}, ${adminArea}`;
 }
 
 export default function LocationButton() {
   const [postalCode, setPostalCode] = useState<string>('');
-
-  const handleClick = async () => {
-    try {
-      const { lat, long } = await getGeolocation();
-      const postalCode = await reverseGeocode(lat, long);
-
-      setPostalCode(postalCode);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  (async () => {
+    const { lat, long } = await getGeolocation();
+    const postalCode = await reverseGeocode(lat, long);
+    setPostalCode(postalCode);
+  })();
 
   return (
     <>
-      <button onClick={handleClick}>Get current location: {postalCode}</button>
+      <div className="flex items-center">
+        <MapPin size={24} className="text-blue-500" />
+        <span className="text-blue-500 ml-2 font-semibold">{postalCode}</span>
+      </div>
     </>
   );
 }

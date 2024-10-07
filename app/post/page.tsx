@@ -33,7 +33,6 @@ export default function PostPage() {
         <div className="flex items-center space-x-6">
           {/* <LocationButton /> */}
           <DropdownButton
-            route="about"
             name="About"
             categories={['About', 'Terms of Service', 'Privacy']}
           />
@@ -66,7 +65,7 @@ export default function PostPage() {
             <input
               type="text"
               name="location"
-              placeholder="Location"
+              placeholder="Zip code"
               className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
